@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Posts from "../Posts";
+import type { Mock } from "vitest";
 
 describe("Post", () => {
   const mockData = [
@@ -11,8 +12,8 @@ describe("Post", () => {
     globalThis.fetch = vi.fn(() =>
       Promise.resolve({
         json: () => Promise.resolve(mockData),
-      })
-    ) as any;
+      }),
+    ) as Mock;
   });
 
   test("should render posts fetched from API", async () => {
@@ -26,7 +27,7 @@ describe("Post", () => {
 
     expect(globalThis.fetch).toHaveBeenCalledTimes(1);
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "https://jsonplaceholder.typicode.com/todos"
+      "https://jsonplaceholder.typicode.com/todos",
     );
   });
 });

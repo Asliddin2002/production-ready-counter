@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
+import type { Mock } from "vitest";
 
 describe("Test App js", () => {
   const mockData = [
@@ -33,8 +34,8 @@ describe("Test App js", () => {
 
   it("App should render the posts", async () => {
     globalThis.fetch = vi.fn(() =>
-      Promise.resolve({ json: () => Promise.resolve(mockData) })
-    ) as any;
+      Promise.resolve({ json: () => Promise.resolve(mockData) }),
+    ) as Mock;
 
     render(<App />);
 

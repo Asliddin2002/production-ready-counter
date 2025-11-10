@@ -1,0 +1,2 @@
+pm run test 
+npx lint-stage
