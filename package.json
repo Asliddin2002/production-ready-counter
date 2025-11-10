@@ -11,7 +11,8 @@
     "test": "vitest",
     "coverage": "vitest --ui --coverage ",
     "prepare": "husky",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "react": "^19.2.0",

@@ -1,2 +1,3 @@
-pm run test 
-npx lint-stage
+npm run type-check
+npm t
+npx lint-staged
