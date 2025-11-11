@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build-and-push:
+  build-and-push-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,3 +38,18 @@ jobs:
 
       - name: Push Docker image
         run: docker push ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest | tr '[:upper:]' '[:lower:]'
+         - name: Push Docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest | tr '[:upper:]' '[:lower:]'
+
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          echo "Deploying to production..."
+          # Option 1: SSH into your server
+          # ssh -i ${{ secrets.DEPLOY_KEY }} user@your-server.com "cd /app && docker pull ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest && docker-compose up -d"
+          
+          # Option 2: Webhook to your deployment service
+          # curl -X POST ${{ secrets.DEPLOY_WEBHOOK_URL }} -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}"
+          
+          # Option 3: Deploy to Vercel, Netlify, Railway, etc.
+          # npx vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }}
