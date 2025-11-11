@@ -9,14 +9,21 @@ export type Post = {
 const Posts = () => {
   const [data, setData] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function fetchData() {
     setIsLoading(true);
     await fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
-      .then((json) => setData(json));
-
-    setIsLoading(false);
+      .then((json) => {
+        setError("");
+        setIsLoading(false);
+        setData(json);
+      })
+      .catch((error: unknown) => {
+        setIsLoading(false);
+        if (error) setError(`Failed to fetch posts`);
+      });
   }
 
   useEffect(() => {
@@ -33,8 +40,10 @@ const Posts = () => {
           </div>
         ))
       ) : (
-        <h3>Loading posts ...</h3>
+        <h3 className="loader">Loading posts ...</h3>
       )}
+
+      {error && <h2 className="error">{error}</h2>}
     </div>
   );
 };
