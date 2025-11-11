@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Test coverage
+coverage/
+
+# Husky temporary files
+.husky/_/
+
+# Docker intermediate files (if any are generated)
+.tmp_docker/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

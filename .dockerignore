@@ -1,0 +1,28 @@
+# Node modules & build artifacts
+node_modules
+dist
+build
+coverage
+
+# Git & version control
+.git
+.gitignore
+
+# Local envs
+.env
+.env.*
+
+# Logs & temp files
+*.log
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Tests (you usually don’t need them inside container)
+tests
+src/tests
+coverage
+
+# Husky (not needed in production image)
+.husky
