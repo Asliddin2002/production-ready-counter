@@ -8,11 +8,15 @@ export type Post = {
 
 const Posts = () => {
   const [data, setData] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function fetchData() {
+    setIsLoading(true);
     await fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((json) => setData(json));
+
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -21,12 +25,16 @@ const Posts = () => {
 
   return (
     <div className="">
-      {data.map((item) => (
-        <div key={item.id}>
-          <h3>{item.title}</h3>
-          <p>{item.completed.toString()}</p>
-        </div>
-      ))}
+      {!isLoading ? (
+        data.map((item) => (
+          <div key={item.id}>
+            <h3>{item.title}</h3>
+            <p>{item.completed.toString()}</p>
+          </div>
+        ))
+      ) : (
+        <h3>Loading posts ...</h3>
+      )}
     </div>
   );
 };
