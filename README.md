@@ -34,7 +34,7 @@ This project goes beyond the default Vite template by demonstrating real-world p
 
 - Test coverage reports
 
-- API mocking using vi.fn()
+- API mocking
 
 - Component tests for:
   - Counter UI
