@@ -1,73 +1,125 @@
-# React + TypeScript + Vite
+# ⚡ Production-Ready Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern production-ready React starter template, designed to teach best practices around:
 
-Currently, two official plugins are available:
+✅ Testing (Vitest + RTL)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Test Coverage
 
-## React Compiler
+✅ Linting (ESLint)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ Formatting (Prettier)
 
-## Expanding the ESLint configuration
+✅ Git Hooks (Husky + lint-staged)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✅ GitHub Actions CI Pipeline
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+✅ API Mocking
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+✅ Windowed Rendering (react-virtuoso)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+✅ TypeScript
+
+✅ Docker Support
+
+This project goes beyond the default Vite template by demonstrating real-world project quality tools with a small but functional UI.
+
+## 🚀 Features
+
+### 🧪 Testing
+
+- Vitest test runner
+
+- React Testing Library
+
+- Test coverage reports
+
+- API mocking using vi.fn()
+
+- Component tests for:
+  - Counter UI
+
+  - Post fetching
+
+  - Virtualized list rendering
+
+### 🧹 Code Quality
+
+- ESLint with React + TypeScript rules
+
+- Prettier (auto-formatting)
+
+- Husky pre-commit hooks
+
+- lint-staged for staged formatting
+
+- Type-checking script (tsc --noEmit)
+
+### 🔄 CI / CD Pipeline
+
+- GitHub Actions workflow that runs on every push:
+
+- Install deps
+
+- Run ESLint
+
+- Run type-checking
+
+- Run tests
+
+- Run build
+
+### 🐋 Docker Support
+
+Production-ready Dockerfile using multi-stage build:
+
+- Stage 1: Build Vite app
+
+- Stage 2: Serve via Nginx
+
+## 📦 Installation
+
+Clone the project:
+
+```bash
+git clone https://github.com/Asliddin2002/production-ready-counter.git
+cd production-ready-counter
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install
 ```
+
+Start dev server:
+
+```bash
+npm run dev
+```
+
+Run tests:
+
+```bash
+npm test
+```
+
+Generate coverage:
+
+```bash
+npm run coverage
+```
+
+## 💡 Why this project exists?
+
+- To simulate a production-grade environment in a simple React starter template — suitable for:
+
+- Learning best practices
+
+- Onboarding junior devs
+
+- Creating templates for future apps
+
+- Interview preparation
+
+- Practicing testing & CI

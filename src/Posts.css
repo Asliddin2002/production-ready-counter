@@ -1,0 +1,26 @@
+.virtual-container {
+  height: 500px;
+  overflow: auto;
+}
+
+.virtual-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.virtual-container::-webkit-scrollbar-track {
+  background: red !important;
+}
+
+.virtual-container::-webkit-scrollbar-thumb {
+  background: rgba(231, 152, 152, 0.7);
+  border-radius: 10px;
+}
+
+.virtual-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(247, 163, 163, 0.9);
+}
+
+.virtual-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(236, 168, 168, 0.7) transparent;
+}
