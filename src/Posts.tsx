@@ -38,7 +38,7 @@ const Posts = () => {
     <div className="virtual-container">
       <Virtuoso
         data={data}
-        itemContent={(index, post) => (
+        itemContent={(_, post) => (
           <div style={{ padding: "12px", borderBottom: "1px solid #ddd" }}>
             <h3>{post.title}</h3>
             <p>{post.completed ? "Completed" : "Pending"}</p>
